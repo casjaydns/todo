@@ -1,0 +1,8 @@
+<div class="container">
+  <ul class="nav">
+    <li *ngIf="!storage.getJwt()"><button class="btn" routerLink="/login" routerLinkActive="active">Login</button></li>
+    <li *ngIf="!storage.getJwt()"><button class="btn" routerLink="/signup" routerLinkActive="active">Signup</button></li>
+    <li *ngIf="storage.getJwt()"><button class="btn" (click)="logout()" >Logout</button></li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

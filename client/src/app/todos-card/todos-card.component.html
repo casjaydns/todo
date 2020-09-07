@@ -1,0 +1,27 @@
+<h1>Your todo list</h1>
+<div class="card">
+  <div class="input-wrapper">
+    <input type="text" class="todo-input" (keydown.enter)="createTodo($event)" placeholder="Enter your task name here">
+  </div>
+
+  <div class="todos">
+    <app-todo
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    (onChange)="getTodos()"
+    ></app-todo>
+  </div>
+
+  <div class="bottom-controls" *ngIf="todosService.todos.length > 0">
+    <button (click)="completeAllTodos()" type="button" >{{todosService.tasksLeft}} tasks left</button>
+    <div class="filter">
+      <input [checked]="status === 0" class="hidden" type="radio" name="status" value="all" id="status-all">
+      <label (click)="applyStatus(0)" for="status-all">All</label>
+      <input [checked]="status === 1" class="hidden" type="radio" name="status" value="todo" id="status-todo">
+      <label (click)="applyStatus(1)" for="status-todo">ToDo</label>
+      <input [checked]="status === 2" class="hidden" type="radio" name="status" value="completed" id="status-completed">
+      <label (click)="applyStatus(2)" for="status-completed">Completed</label>
+    </div>
+    <button (click)="deleteCompletedTodos()" type="button">Clear completed</button>
+  </div>
+</div>

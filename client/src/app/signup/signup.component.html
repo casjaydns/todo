@@ -1,0 +1,18 @@
+<form class="form" [formGroup]="form" (ngSubmit)="signup()">
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input class="input" formControlName="email" name="email" type="text" id="email" placeholder="Email here">
+    <span *ngIf="!form.get('email').valid && form.get('email').touched" class="invalid-field-tip">Provide correct email</span>
+  </div>
+  <div class="form-field">
+    <label for="password">Password</label>
+    <input class="input" formControlName="password" name="password" type="password" id="password" placeholder="Password">
+    <span *ngIf="!form.get('password').valid && form.get('password').touched" class="invalid-field-tip">Password should have minimum 6 symbols</span>
+  </div>
+  <div class="form-field">
+    <label for="password-confirm">Password confirm</label>
+    <input class="input" formControlName="passwordConfirm" name="passwordConfirm" type="password" id="password-confirm" placeholder="Confirm password">
+    <span *ngIf="!form.get('passwordConfirm').valid && form.get('passwordConfirm').touched" class="invalid-field-tip">Passwords are not the same</span>
+  </div>
+  <button class="btn" [disabled]="!form.valid" type="submit">Sign up</button>
+</form>

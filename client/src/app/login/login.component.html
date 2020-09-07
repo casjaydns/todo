@@ -1,0 +1,13 @@
+<form class="form" [formGroup]="form" (ngSubmit)="login()">
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input class="input" formControlName="email" id="email" name="email" type="text" placeholder="Email here">
+    <span *ngIf="!form.get('email').valid && form.get('email').touched" class="invalid-field-tip">Provide correct email</span>
+  </div>
+  <div class="form-field">
+    <label for="password">Password</label>
+    <input class="input" formControlName="password" id="password" name="password" type="password" placeholder="Password">
+    <span *ngIf="!form.get('password').valid && form.get('password').touched" class="invalid-field-tip">Passwords should have minimum 6 symbols</span>
+  </div>
+  <button [disabled]="!form.valid" class="btn" type="submit">Log in</button>
+</form>

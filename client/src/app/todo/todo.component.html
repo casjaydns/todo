@@ -1,0 +1,10 @@
+<div class="todo">
+  <div>
+    <input (change)="toggleTodo(todo)" [checked]="todo.completed" type="checkbox" class="hidden" [id]="todo._id">
+    <label [htmlFor]="todo._id"></label>
+  </div>
+  <p>{{todo.title}}</p>
+  <button (click)="deleteTodo(todo)" type="button">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
